@@ -32,6 +32,20 @@ const Layermanager = function Layermanager(options = {}) {
     }
   });
 
+  const openLayermanagerBtn = Origo.ui.Button({
+    cls: 'round compact primary icon-small margin-x-smaller',
+    click() {
+      viewer.dispatch('active:layermanager');
+    },
+    style: {
+      'align-self': 'center'
+    },
+    icon: '#o_add_24px',
+    iconStyle: {
+      fill: '#fff'
+    }
+  });
+
   const setActive = function setActive() {
     this.render();
   };
@@ -45,6 +59,8 @@ const Layermanager = function Layermanager(options = {}) {
     onAdd(e) {
       viewer = e.target;
       viewer.on('active:layermanager', setActive.bind(this));
+      let legend = viewer.getControlByName('legend');
+      legend.addButtonToTools(openLayermanagerBtn);
       main = Main({ 
         viewer,
         sourceFields,
