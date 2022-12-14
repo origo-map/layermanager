@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -30,7 +30,10 @@ module.exports = merge(common, {
     ]
   },  
   devServer: {
-    contentBase: './',
-    port: 9008
+    static: './',
+    port: 9008,
+    devMiddleware: {
+      writeToDisk: true
+    },  
   }
 });

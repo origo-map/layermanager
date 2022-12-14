@@ -8,26 +8,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          cacheDirectory: false,
-          presets: [
-            ['@babel/preset-env', {
-              targets: {
-                browsers: ['chrome >= 39']
-              },
-              modules: false,
-              useBuiltIns: 'usage'
-            }]
-          ],
-          plugins: [
-            ['@babel/plugin-transform-runtime', {
-              regenerator: true,
-              corejs: 2
-            }]
-          ]         
-        }
+        exclude: /node_modules/
       }     
     ]
   },
